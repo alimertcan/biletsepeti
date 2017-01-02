@@ -4,9 +4,10 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
-    "require": {
+    "require": { 
         "php": ">=5.5.9",
-        "laravel/framework": "5.2.*"
+        "laravel/framework": "5.2.*",
+		"stripe/stripe-php": "4.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
