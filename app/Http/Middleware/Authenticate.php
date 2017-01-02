@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Middleware;
-
+Use Session;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,7 +21,8 @@ class Authenticate
             if ($request->ajax() || $request->wantsJson()) {
                 return response('Unauthorized.', 401);
             } else {
-                return redirect()->guest('login');
+				Session::put('oldurl',$request->url());
+                return redirect()->route('user.signin');
             }
         }
 
