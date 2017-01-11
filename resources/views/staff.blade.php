@@ -28,6 +28,10 @@
 		<label for ="price">Price</label>
 		<input type="number" id="price" name="price" class="form-control">
 		</div>
+		<div class="form-group">
+		<label for ="price">Stock</label>
+		<input type="number" id="stok" name="stok" class="form-control">
+		</div>
 		<button type="submit" class="btn btn-primary">Add Ticket</button>
 		{{ csrf_field()}}
 		
