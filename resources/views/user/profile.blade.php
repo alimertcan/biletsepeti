@@ -1,6 +1,16 @@
  @extends('layouts.master')
  
  @section('content')
+ @if(Session::has('success'))
+<div class="row">
+
+	<div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
+		<div id="charge-message" class="alert alert-success">
+			{{Session::get('success')}}
+		</div>	
+	</div>
+</div>	
+@endif
 	<div class="row">
 		<div class="col-sm-8 col-md-2">
 			<h1>User Profile</h1>
@@ -31,8 +41,19 @@
 					<ul class="list-group">
 						@foreach($order->cart->items as $item)
 						<li class="list-group-item"><span class="badge">{{$item['price']}}TL</span> 
-						{{$item['item']['title']}} | {{$item['qty']}}Tickets
+						{{$item['item']['title']}} | {{$item['qty']}} Tickets || {{$item['item']['description']}} 
 						</li>
+						<form action="{{route('user.profile')}} " method="post">
+						<input id="id" name="id" type="hidden" value="{{$order->id}}">
+						{{ csrf_field() }}
+						@if($order->status==0)
+						<button type="submit"  class="btn btn-danger disabled pull-right">Request Cancel</button>
+						<button type="submit"  class="btn btn-primary pull-right">Get Back</button>
+						@else
+						<button type="submit"  class="btn btn-danger pull-right">Request Cancel</button>
+						<button type="submit"  class="btn btn-primary disabled pull-right">Get Back</button>
+						@endif
+						</form>
 						@endforeach
 					</ul>
 				</div>
