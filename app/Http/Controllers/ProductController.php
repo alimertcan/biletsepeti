@@ -105,6 +105,7 @@ class ProductController extends Controller
 			$order->address= $request->input('address');
 			$order->name= $request->input('name');
 			$order->payment_id= $charge->id;
+			$order->status= 1;
 			Auth::user()->orders()->save($order);
 		} catch(\Exception $e){
 			return redirect()->route('checkout')->with('error',$e->getMessage());
@@ -135,6 +136,7 @@ class ProductController extends Controller
 			$order->cart= serialize($cart); 
 			$order->address= $request->input('address');
 			$order->name= $request->input('name');
+			$order->status= 1;
 		//	$order->payment_id= $charge->id;
 			Auth::user()->orders()->save($order);
 		} catch(\Exception $e){
@@ -159,13 +161,16 @@ class ProductController extends Controller
 	 'title' => 'required',
 	 'imagePath' => 'required|min:4',
 	 'description' => 'required|min:4',
-	 'price' => 'required'
+	 'price' => 'required',
+	 'stok' => 'required'
+	 
 	 ]);
 	$products=new Product([
 	'title'=> $request->input('title'),
 	'imagePath'=> $request->input('imagePath'),
 	'description'=> $request->input('description'),
-	'price'=> $request->input('price')
+	'price'=> $request->input('price'),
+	'stok' => $request->input('stok')
 	
 	]);
 	$products->save();

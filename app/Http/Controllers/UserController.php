@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Order;
 use App\Http\Requests;
 use Auth;
 Use Session;
@@ -12,6 +13,22 @@ class UserController extends Controller
 {
     public function getSignup(){
 	return view('user.signup');
+	}
+	
+	public function postTicket(Request $request){
+	$id=$request->input('id');
+	$order=\App\Order::find($id);
+	if($order->status==1){
+	$order->status=0;
+	$order->save();
+	return redirect()->route('user.profile')->with('success','Successfully Send a Cancel Request!');
+	}
+	else{
+	$order->status=1;
+	$order->save();
+	
+	}
+	return redirect()->route('user.profile')->with('success','Successfully Get Back Your Request!');
 	}
 	
 	public function postSignup(Request $request){
@@ -85,4 +102,6 @@ class UserController extends Controller
 	 
 	 return redirect()->route('user.editprofile',[$user->id])->with('message', 'User has been updated!');
 	 }
+	
+	 
 }

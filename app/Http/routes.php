@@ -107,6 +107,21 @@ Route::group(['prefix'=>'user'],function(){
 	'roles'=>['Admin','Staff']
  ]);  
  
+    Route::get('/staffcancelticket2',[ 
+	'uses' =>'AppController@getstaffcancelpage2',
+	'as' =>'staffcancelticket2',
+	'middleware'=>'roles',
+	'roles'=>['Admin','Staff']
+ ]);  
+ 
+   Route::post('/staffcancelticket2',[ 
+	'uses' =>'AppController@staffcancelticket2',
+	'as' =>'staffcancelticket2',
+	'middleware'=>'roles',
+	'roles'=>['Admin',['Staff']]
+ ]); 
+ 
+ 
   Route::get('/staff',[ 
 	'uses' =>'AppController@getstaffpage',
 	'as' =>'staff',
@@ -155,6 +170,13 @@ Route::group(['middleware'=>'auth'],function(){
 	'as' =>'user.profile'
 	
  ]);  
+ 
+  Route::post('/profile',[ 
+	'uses' =>'UserController@postTicket',
+	'as' =>'user.profile'
+	
+ ]);  
+ 
   Route::get('/editprofile',[ 
 	'uses' =>'UserController@geteditProfile',
 	'as' =>'user.editprofile'

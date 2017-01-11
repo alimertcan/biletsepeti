@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
 			$table->string('title');
 			$table->text('description');
 			$table->integer('price');
-			
+			$table->integer('stok');
         });
     }
 

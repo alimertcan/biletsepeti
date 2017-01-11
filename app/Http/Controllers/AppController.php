@@ -42,9 +42,20 @@ class AppController extends Controller
        
         return redirect()->back();
     }
+	 public function staffcancelticket2(Request $request)
+    {
+		Order::where('id', $request['id'])->delete();
+       
+        return redirect()->back();
+    }
 	 public function getstaffcancelpage()
     {
          $orders = Order::all();
         return view('staffcancelticket', ['orders' => $orders]);
+    }
+	 public function getstaffcancelpage2()
+    {
+         $orders = Order::where('status',0 )->get();
+        return view('staffcancelticket2', ['orders' => $orders]);
     }
 }

@@ -19,6 +19,7 @@ class CreateOrdersTable extends Migration
 			$table->text('cart');
 			$table->text('address');
 			$table->string('name');
+			$table->integer('status');//0sa iptal request 1 ise approved
 			$table->string('payment_id');
         });
     }

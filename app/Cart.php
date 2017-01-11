@@ -17,6 +17,16 @@ class Cart
 	}
    }
    public function add($item,$id){
+   $product=\App\Product::find($id);
+   if($product->stok>0){
+	$product->stok--;
+	$product->save();
+	}
+	else{
+	return redirect()->route('product.index')->with('success','No Stock Try Another Ticket');
+	}
+   
+   
 	$storedItem=['qty'=>0,'price'=> $item->price,'item' => $item];
 	if($this->items){
 		if(array_key_exists($id,$this->items)){
@@ -28,6 +38,8 @@ class Cart
 	$this->items[$id]=$storedItem;
 	$this->totalqty++;
 	$this->totalprice +=$item->price;
+	
+	
 	}
 	public function removeone($id){
 	$this->items[$id]['qty']--;
@@ -37,11 +49,17 @@ class Cart
 	if($this->items[$id]['qty']<=0){
 	unset($this->items[$id]);
 	}
-	
+	$product=\App\Product::find($id);
+	$product->stok++;
+	$product->save();
 	}
 	public function removeitem($id){
+	$product=\App\Product::find($id);
+	$product->stok=$product->stok+$this->totalqty;
+	$product->save();
 	$this->totalqty-=$this->items[$id]['qty'];
 	$this->totalprice-=$this->items[$id]['price'];
 	unset($this->items[$id]);
+	
 	}
 }
