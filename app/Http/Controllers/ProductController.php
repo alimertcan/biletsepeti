@@ -28,7 +28,7 @@ class ProductController extends Controller
 	
 	  public function getAddToCart(Request $request,$id){
 	$product=\App\Product::find($id);
-	if($product->stok>=0){
+	if($product->stok>0){
 	$oldCart=Session::has('cart') ? Session::get('cart'):null;
 	$cart = new Cart($oldCart);
 	$cart->add($product, $product->id);
