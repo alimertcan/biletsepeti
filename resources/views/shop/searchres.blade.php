@@ -18,12 +18,12 @@ Ticket System
 	@foreach($products as $product)
 	
 
-	<div class="row">
+	
 	
 <div>
 <a href="{{route('ticket',['id' =>$product->id])}}">{{$product->title}}</a>
 </div>              
 @endforeach
-</div>
+
 	
 @endsection

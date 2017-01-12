@@ -16,7 +16,7 @@ class ProductTableSeeder extends Seeder
 		'title' => 'Duman',
 		'description' => 'Lütfi Kırdar 05.01.2017 20:00',
 		'price' => '20',
-		'stok' => '3',
+		'stok' => '2',
 		]);
 		$product ->save();
 		  $product = new \App\Product([
@@ -24,7 +24,7 @@ class ProductTableSeeder extends Seeder
 		'title' => 'Bulutsuzluk Özlemi',
 		'description' => 'Beyoğlu Hayal Kahvesi 06.01.2017 22:00',
 		'price' => '30',
-		'stok' => '5',
+		'stok' => '2',
 		]);
 		$product ->save();
 		  $product = new \App\Product([
@@ -32,9 +32,7 @@ class ProductTableSeeder extends Seeder
 		'title' => 'Fenerbahçe - Anadolu Efes',
 		'description' => 'Ülker Sports Arena 07.01.2017 19:00',
 		'price' => '60',
-
-		'stok' => '5',
-
+		'stok' => '2',
 		]);
 		$product ->save();
 		
@@ -43,7 +41,7 @@ class ProductTableSeeder extends Seeder
 		'title' => 'Aşk ve Mucize',
 		'description' => 'Süzer Plaza 09.01.2017 20:00',
 		'price' => '120',
-		'stok' => '4',
+		'stok' => '2',
 		]);
 		$product ->save();
 		
@@ -52,7 +50,7 @@ class ProductTableSeeder extends Seeder
 		'title' => 'Tiyatro Keyfi Etkinlikeri',
 		'description' => 'Caddebostan Kültür Merkezi 07.01.2017 19:00',
 		'price' => '35',
-		'stok' => '1',
+		'stok' => '2',
 		]);
 		$product ->save();
 		
@@ -61,9 +59,7 @@ class ProductTableSeeder extends Seeder
 		'title' => 'Yıldız Tilbe',
 		'description' => 'Caddebostan Kültür Merkezi 07.01.2017 19:00',
 		'price' => '43',
-
 		'stok' => '2',
-
 		]);
 		$product ->save();
 		

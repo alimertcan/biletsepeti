@@ -1,4 +1,3 @@
-
 @extends('layouts.master')
 
 @section('content')
@@ -27,5 +26,4 @@
         @endforeach
         </tbody>
     </table>
-
 @endsection

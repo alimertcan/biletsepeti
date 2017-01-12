@@ -39,5 +39,4 @@ Ticket System
   <!--input type="text" class="form-control" name="search" v-model="search" -->
 </div>
 	@endforeach
-
 @endsection
