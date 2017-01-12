@@ -18,14 +18,7 @@ class Cart
    }
    public function add($item,$id){
    $product=\App\Product::find($id);
-   if($product->stok>0){
-	$product->stok--;
-	$product->save();
-	}
-	else{
-	return redirect()->route('product.index')->with('success','No Stock Try Another Ticket');
-	}
-   
+  
    if($product->stok>0){
 	$storedItem=['qty'=>0,'price'=> $item->price,'item' => $item];
 	if($this->items){
@@ -38,8 +31,17 @@ class Cart
 	$this->items[$id]=$storedItem;
 	$this->totalqty++;
 	$this->totalprice +=$item->price;
-	
 	}
+	 if($product->stok>0){
+	$product->stok--;
+	$product->save();
+	}
+	else{
+	return redirect()->route('product.index')->with('success','No Stock Try Another Ticket');
+	}
+   
+	
+	
 	}
 	public function removeone($id){
 	$this->items[$id]['qty']--;

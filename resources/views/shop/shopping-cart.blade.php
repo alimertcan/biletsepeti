@@ -7,8 +7,10 @@ Ticket Cart
 @section('content')
 	
 	@if(Session::has('cart'))
+		
 		<div class="row">
 			<ul class="list group">	
+			@if($products!=null)
 			@foreach($products as $product)
 			<li class ="list-group-item">
 			<span class="badge">{{$product['qty']}}</span>
@@ -39,8 +41,12 @@ Ticket Cart
 		<a href="{{route('checkout')}}" type="button" class="btn btn-success">Checkout By Card</button>
 		
 		<a href="{{route('checkout2')}}" type="button" class="btn btn-success">Checkout By Wire Transfer</button>
-			
-			
+		@else
+	<div class="row">
+		<h2>no items in cart</h2>
+		
+		</div>		
+			@endif
 	@else
 	<div class="row">
 		<h2>no items in cart</h2>
