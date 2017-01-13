@@ -26,10 +26,12 @@
 						@if(Auth::check())
 						    <li>{{Auth::user()->email }}</li>	
 							<li><a href="{{route('user.profile')}}"> User Profile</a></li>	
-							<li><a href="{{route('admin')}}"> AdminAssignRoles</a></li>
-							<li><a href="{{route('staff')}}"> StaffAddTicket</a></li>							
-							<li><a href="{{route('staffcancelticket2')}}"> StaffCancelTicketRequested</a></li>	
-							<li><a href="{{route('staffcancelticket')}}"> StaffCancelTicketAll</a></li>	
+							<li><a href="{{route('admin')}}"> Admin AssignRoles</a></li>
+							<li><a href="{{route('staff')}}"> Staff AddTicket</a></li>							
+							<li><a href="{{route('staffcancelticket2')}}"> Staff Cancel TicketRequested</a></li>	
+							<li><a href="{{route('staffcancelticket')}}"> Staff Cancel TicketAll</a></li>	
+								<li><a href="{{route('stafforder')}}"> Staff Order Stock Control</a></li>	
+								<li><a href="{{route('staffstok')}}"> Staff Stock Control</a></li>	
 							<li><a href="{{route('user.logout')}}">Logout</a></li>
 						@else
 						   

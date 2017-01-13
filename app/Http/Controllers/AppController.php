@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use App\User;
+use App\Product;
 use App\Role;
 use App\Order;
 use Illuminate\Http\Request;
@@ -38,15 +39,27 @@ class AppController extends Controller
     }
 	 public function staffcancelticket(Request $request)
     {
-		Order::where('id', $request['id'])->delete();
+	$id=$request->input('id');
+	$order=\App\Order::find($id);
+	$order->status=3;
+	$order->payment_id=1;
+	$order->save();
+	return redirect()->route('staffcancelticket2')->with('success','Successfully Cancel Ticket');
+	/*	Order::where('id', $request['id'])->delete();
        
-        return redirect()->back();
+        return redirect()->back();*/
     }
 	 public function staffcancelticket2(Request $request)
     {
-		Order::where('id', $request['id'])->delete();
+	$id=$request->input('id');
+	$order=\App\Order::find($id);
+	$order->status=3;
+	$order->payment_id=1;
+	$order->save();
+	return redirect()->route('staffcancelticket2')->with('success','Successfully Cancel Ticket');
+	
+	
        
-        return redirect()->back();
     }
 	 public function getstaffcancelpage()
     {

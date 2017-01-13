@@ -36,6 +36,7 @@
 			<hr>
 			<h2>My Orders</h2>
 			@foreach($orders as $order)
+				@if($order->status!=3)
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<ul class="list-group">
@@ -60,7 +61,9 @@
 			<div class="panel-footer"></div>
 			<strong>Total Price:{{$order->cart->totalprice}}</strong>
 			</div>
+				@endif
 			@endforeach
+		
     </div>
   </div>
   @endsection

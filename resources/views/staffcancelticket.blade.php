@@ -11,6 +11,7 @@
         </thead>
         <tbody>
         @foreach($orders as $order)
+		@if($order->status!=3)
             <tr>
                 <form action="{{ route('staffcancelticket') }}" method="post">
                     <td>{{ $order->id }}</td>
@@ -21,6 +22,7 @@
                     <td><button type="submit">Cancel Tickets</button></td>
                 </form>
             </tr>
+			@endif
         @endforeach
         </tbody>
     </table>

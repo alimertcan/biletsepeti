@@ -21,6 +21,61 @@ Route::get('/',[
 	'as' =>'ticket'
  ]);  
  
+  Route::get('/stafforder',[ 
+	'uses' =>'UserController@getProfilestaff',
+	'as' =>'stafforder',
+	'middleware'=>'roles',
+	'roles'=>['Admin',['Staff']]
+	
+ ]);  
+ 
+  Route::get('/staffstok',[ 
+	'uses' =>'ProductController@staffstok',
+	'as' =>'staffstok',
+	'middleware'=>'roles',
+	'roles'=>['Admin',['Staff']]
+	
+ ]);  
+ Route::post('/staffstok',[ 
+	'uses' =>'ProductController@staffstok2',
+	'as' =>'staffstok',
+	'middleware'=>'roles',
+	'roles'=>['Admin',['Staff']]
+	
+ ]);  
+ 
+ Route::get('/staffedit',[ 
+	'uses' =>'ProductController@staffedit',
+	'as' =>'staffedit',
+	'middleware'=>'roles',
+	'roles'=>['Admin',['Staff']]
+	
+ ]);  
+ Route::post('/staffedit',[ 
+	'uses' =>'ProductController@editTicket',
+	'as' =>'staffedit',
+	'middleware'=>'roles',
+	'roles'=>['Admin',['Staff']]
+	
+ ]);  
+ 
+  Route::get('/stafforder/{oid}',[ 
+	'uses' =>'UserController@getProfilestaff2',
+	'as' =>'stafforder2',
+	'middleware'=>'roles',
+	'roles'=>['Admin',['Staff']]
+	
+ ]);  
+ 
+   Route::post('/stafforder',[ 
+	'uses' =>'UserController@poststaff',
+	'as' =>'stafforder',
+	'middleware'=>'roles',
+	'roles'=>['Admin',['Staff']]
+	
+ ]);  
+ 
+ 
  Route::get('/search',[ 
 	'uses' =>'SearchController@getsearch',
 	'as' =>'search.index'

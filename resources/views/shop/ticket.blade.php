@@ -27,6 +27,7 @@ Ticket System
       <div class="caption">
         <h3><p>{{$product['title']}}</a></p></h3>
         <p class="description">{{$product['description']}}</p>
+		   <p class="stok">Stok:{{$product->stok}}</p>
 		
         <div class="clearfix"><div class="pull-left price">{{$product['price']}}TL</div>
 		<a href="{{route('product.addToCart',['id' =>$product['id']])}}" class="btn btn-success pull-right" role="button">Add to Cart</a>
